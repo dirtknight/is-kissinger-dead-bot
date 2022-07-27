@@ -25,7 +25,7 @@ IKDY_SEARCH_QUERY = "from:updates_henry"
 
 # Set up the Discord API stuff
 intents = disnake.Intents.default()
-intents.message_content = True
+#intents.message_content = True
 
 try:
     bot = commands.Bot(command_prefix="??", intents=intents, test_guilds=[int(GUILD_ID)])
