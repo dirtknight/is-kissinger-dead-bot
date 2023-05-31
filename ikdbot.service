@@ -1,0 +1,10 @@
+[Unit]
+Description=Is Kissinger Dead Yet? Bot tells all
+
+[Service]
+ExecStart=/home/discord-ikdb/is-kissinger-dead-bot/ikdb.py
+User=discord-ikdb
+
+[Install]
+WantedBy=multi-user.target
+

@@ -10,7 +10,7 @@ import logging
 # Set up logging
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
-handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')
+handler = logging.FileHandler(filename='/tmp/discord.log', encoding='utf-8', mode='w')
 handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 
@@ -20,7 +20,7 @@ load_dotenv()
 TOKEN = os.getenv("DIS_TOKEN")
 GUILD_ID = os.getenv("DIS_GUILD")
 BEARER = os.getenv("TWI_BEARER")
-TEST_CHANNEL = 808480064903184404
+TEST_CHANNEL = os.getenv("TEST_CHANNEL")
 IKDY_SEARCH_QUERY = "from:updates_henry"
 
 # Set up the Discord API stuff
@@ -71,7 +71,7 @@ async def ishedead(inter):
 #    if message.channel.id != 951635682399494154:
 #        return
 #
-#    if message.content == "hi af-test":
+#    if message.content == "hi ikdb-test":
 #        await message.channel.send("hi friend")
 #
 #    print(message.content)
