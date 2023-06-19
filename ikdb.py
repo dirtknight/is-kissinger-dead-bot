@@ -26,9 +26,11 @@ IKDY_SEARCH_QUERY = "from:updates_henry"
 # Set up the Discord API stuff
 intents = disnake.Intents.default()
 #intents.message_content = True
+print("Intents set")
 
 try:
-    bot = commands.Bot(command_prefix="??", intents=intents, test_guilds=[int(GUILD_ID)])
+    print("Getting Discord API")
+    bot = commands.InteractionBot(intents=intents, test_guilds=[int(GUILD_ID)])
 except:
     print("Discord API access went sideways")
 else:
@@ -36,6 +38,7 @@ else:
 
 # Set up the Twitter API stuff
 try:
+    print("Getting Twitter API", BEARER)
     twi_client = tweepy.Client(bearer_token=BEARER)
 except:
     print("Twitter API access went sideways")
@@ -60,11 +63,15 @@ async def ping(inter):
     description="Is the USA's favorite lich banished from this realm yet?",
 )
 async def ishedead(inter):
-    tweet = get_last_tweet()
+    try:
+        tweet = get_last_tweet()
+    except:
+        await inter.response.send_message("something's fucked on the bot backend")
     #print(tweet.user.screen_name)
     #dead_url = "https://twitter.com/{}/status/{}".format(tweet.user.screen_name,tweet.id)
     #dead_embed = disnake.Embed(url=str(tweet))
-    await inter.response.send_message(tweet)
+    else:
+        await inter.response.send_message(tweet)
 
 #@bot.listen('on_message')
 #async def on_message(message):

@@ -3,7 +3,8 @@ Discord bot reporting on if that rat bastard finally kicked the bucket
 
 look I know the bot is shit but in my defense, I did this in an hour or so on a whim and I just can't bring myself to care enough to fix it
 
-The bot requires a Discord guild ID and app token, plus a Twitter API token. Don't gotta pay Musk for the Twitter junk, it only reads.
+The bot requires a Discord guild ID and app token, plus a Twitter API token. 
+APPARENTLY it's too fucking costly on Twitter's side to allow like 30 requests a month for tweets from one fucking account for free, so you'll need to pay Musk $100/month to get this thing running.
 
 Stick everything you need in a file named ".env" in the same directory as this bot. Specifically, you need these variables in there:
 
@@ -20,4 +21,4 @@ The bot uses these modules:
 [Disnake](https://docs.disnake.dev/en/stable/) for the Discord crap
 
 I recommend running the thing as a separate user, with a systemd service handling keeping the thing alive.
-There's an exampld .service file provided, ikdbot.service. Do with that what thou wilst.
+There's an example .service file provided, ikdbot.service. Do with that what thou wilst.
